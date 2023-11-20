@@ -22,7 +22,7 @@
         },
         "types": ["node", "jest"]
     },
-    "include": ["tasks/**/*"],
+    "include": ["_posts/**/*"],
     "exclude": [
         "node_modules",
         "node_modules/*",

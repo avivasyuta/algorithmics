@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<a class="back" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 2048 2048">
+        <path fill="currentColor"
+              d="m1699 249l-775 775l775 775l-241 242L441 1024L1458 7l241 242z"/>
+    </svg>
+    На главную
+</a>
+
+<h1>{{ page.title }}</h1>
+
+<p class="meta">
+    {{ page.date | date_to_long_string }}, Сложность
+
+    {% if page.complexity == "easy" %}
+    <span class="easy-complexity">Легкая</span>
+    {% endif %}
+
+    {% if page.complexity == "medium" %}
+    <span class="medium-complexity">Средняя</span>
+    {% endif %}
+
+    {% if page.complexity == "hard" %}
+    <span class="hard-complexity">Сложная</span>
+    {% endif %}
+    ,
+
+    {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
+    {% if minutes == 0 %}
+        {% assign minutes = 1 %}
+    {% endif %}
+
+    <span>
+        {{ minutes }} min
+    </span>
+</p>
+
+{% if page.original_url %}
+<p>
+    <a href="{{ page.original_url }}" target="_blank">Оригинал задачи на Leetcode</a>
+</p>
+{% endif %}
+
+{{ content }}
+
